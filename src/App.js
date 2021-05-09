@@ -3,8 +3,14 @@ import './App.css';
 
 function App() {
 
-  const [title, setTitle] = useState(['front-end frameworks', 'React', 'Vue']);
+  const [title, setTitle] = useState(['React', 'Vue', 'Angular']);
   const [like, setLike] = useState(0)
+
+  const titleChanger = () => {
+    let newArray = [...title]
+    newArray.sort()
+    setTitle(newArray);
+  }
 
   return (
     <div className="App">
@@ -28,6 +34,7 @@ function App() {
         <p>Feb. 17th</p>
         <hr/>
       </div>
+      <button onClick={titleChanger}>btn</button>
     </div>
   );
 }
