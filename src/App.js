@@ -5,12 +5,8 @@ function App() {
 
   const [title, setTitle] = useState(['React', 'Vue', 'Angular']);
   const [like, setLike] = useState(0)
+  const [modal, setModal] = useState(false)
 
-  const titleChanger = () => {
-    let newArray = [...title]
-    newArray.sort()
-    setTitle(newArray);
-  }
 
   return (
     <div className="App">
@@ -30,13 +26,25 @@ function App() {
         <hr/>
       </div>
       <div className="list">
-        <h3>{ title[2] } </h3>
+        <h3 onClick={() => setModal(!modal)}>{ title[2] } </h3>
         <p>Feb. 17th</p>
         <hr/>
       </div>
-      <button onClick={titleChanger}>btn</button>
+      {
+        modal ? <Modal /> : null
+      }
     </div>
   );
+}
+
+function Modal() {
+  return (
+    <div className="modal">
+        <h2>title</h2>
+        <p>date</p>
+        <p>detail</p>
+    </div>
+  )
 }
 
 export default App;
